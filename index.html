@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Mercado</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+      integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/js/script.js"></script>
+    <style>
+      body {
+      }
+      .table img {
+        max-width: 100px;
+        height: auto;
+      }
+      .table input[readonly] {
+        border: none;
+        background: none;
+        text-align: right;
+        font-weight: bold;
+        width: 100px;
+      }
+      .table input[type="number"] {
+        width: 60px;
+      }
+      .table label {
+        font-weight: bold;
+      }
+      .table td h4,
+      .table td p {
+        margin: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <form>
+      <!--Topo da página-->
+      <div class="container-fluid"></div>
+      <div class="container-fluid">
+        <h1 class="text-center my-4">Mercado</h1>
+      </div>
+      <!--Conteúdo da página-->
+      <div class="container-fluid">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Cód:</th>
+              <th scope="col">Imagem Prod:</th>
+              <th scope="col">Descrição:</th>
+              <th scope="col">Valor UND R$:</th>
+              <th scope="col">Quantidade:</th>
+              <th scope="col">Subtotal R$:</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td><img src="/img/açucar.png" alt="Açúcar" /></td>
+              <td>
+                <h4>Açúcar</h4>
+                <p>Descrição do açúcar</p>
+              </td>
+              <td>
+                <label>Valor UND R$:</label
+                ><input type="text" name="prod1" readonly value="4,50" />
+              </td>
+              <td>
+                <label>Quantidade:</label>
+                <input
+                  type="number"
+                  name="qtd1"
+                  value="1"
+                  onchange="updateSubtotal(1, 4.50)"
+                />
+              </td>
+              <td>
+                <label>Subtotal R$:</label
+                ><input type="text" id="sub1" readonly value="4,50" />
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td><img src="/img/alho.png" alt="Alho" /></td>
+              <td>
+                <h4>Alho</h4>
+                <p>Descrição do alho</p>
+              </td>
+              <td>
+                <label>Valor UND R$:</label
+                ><input type="text" name="prod2" readonly value="3,20" />
+              </td>
+              <td>
+                <label>Quantidade:</label>
+                <input
+                  type="number"
+                  name="qtd2"
+                  value="1"
+                  onchange="updateSubtotal(2, 3.20)"
+                />
+              </td>
+              <td>
+                <label>Subtotal R$:</label
+                ><input type="text" id="sub2" readonly value="3,20" />
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td><img src="/img/amaciante.png" alt="Amaciante" /></td>
+              <td>
+                <h4>Amaciante</h4>
+                <p>Descrição do amaciante</p>
+              </td>
+              <td>
+                <label>Valor UND R$:</label
+                ><input type="text" name="prod3" readonly value="6,75" />
+              </td>
+              <td>
+                <label>Quantidade:</label>
+                <input
+                  type="number"
+                  name="qtd3"
+                  value="1"
+                  onchange="updateSubtotal(3, 6.75)"
+                />
+              </td>
+              <td>
+                <label>Subtotal R$:</label
+                ><input type="text" id="sub3" readonly value="6,75" />
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">4</th>
+              <td><img src="/img/arroz.png" alt="Arroz" /></td>
+              <td>
+                <h4>Arroz</h4>
+                <p>Descrição do arroz</p>
+              </td>
+              <td>
+                <label>Valor UND R$:</label
+                ><input type="text" name="prod4" readonly value="15,00" />
+              </td>
+              <td>
+                <label>Quantidade:</label>
+                <input
+                  type="number"
+                  name="qtd4"
+                  value="1"
+                  onchange="updateSubtotal(4, 15.00)"
+                />
+              </td>
+              <td>
+                <label>Subtotal R$:</label
+                ><input type="text" id="sub4" readonly value="15,00" />
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">5</th>
+              <td><img src="/img/batata.png" alt="Batata" /></td>
+              <td>
+                <h4>Batata</h4>
+                <p>Descrição da batata</p>
+              </td>
+              <td>
+                <label>Valor UND R$:</label
+                ><input type="text" name="prod5" readonly value="5,90" />
+              </td>
+              <td>
+                <label>Quantidade:</label>
+                <input
+                  type="number"
+                  name="qtd5"
+                  value="1"
+                  onchange="updateSubtotal(5, 5.90)"
+                />
+              </td>
+              <td>
+                <label>Subtotal R$:</label
+                ><input type="text" id="sub5" readonly value="5,90" />
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">6</th>
+              <td>
+                <img
+                  src="/img/biscoito recheado2.png"
+                  alt="Biscoito Recheado"
+                />
+              </td>
+              <td>
+                <h4>Biscoito Recheado</h4>
+                <p>Descrição do biscoito recheado</p>
+              </td>
+              <td>
+                <label>Valor UND R$:</label
+                ><input type="text" name="prod6" readonly value="8,50" />
+              </td>
+              <td>
+                <label>Quantidade:</label>
+                <input
+                  type="number"
+                  name="qtd6"
+                  value="1"
+                  onchange="updateSubtotal(6, 8.50)"
+                />
+              </td>
+              <td>
+                <label>Subtotal R$:</label
+                ><input type="text" id="sub6" readonly value="8,50" />
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">7</th>
+              <td>
+                <img src="/img/biscoitosalgado.png" alt="Biscoito Salgado" />
+              </td>
+              <td>
+                <h4>Biscoito Salgado</h4>
+                <p>Descrição do biscoito salgado</p>
+              </td>
+              <td>
+                <label>Valor UND R$:</label
+                ><input type="text" name="prod7" readonly value="4,90" />
+              </td>
+              <td>
+                <label>Quantidade:</label>
+                <input
+                  type="number"
+                  name="qtd7"
+                  value="1"
+                  onchange="updateSubtotal(7, 4.90)"
+                />
+              </td>
+              <td>
+                <label>Subtotal R$:</label
+                ><input type="text" id="sub7" readonly value="4,90" />
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">8</th>
+              <td><img src="img/cafe.png" alt="Café" /></td>
+              <td>
+                <h4>Café</h4>
+                <p>Descrição do café</p>
+              </td>
+              <td>
+                <label>Valor UND R$:</label
+                ><input type="text" name="prod8" readonly value="10,00" />
+              </td>
+              <td>
+                <label>Quantidade:</label>
+                <input
+                  type="number"
+                  name="qtd8"
+                  value="1"
+                  onchange="updateSubtotal(8, 10.00)"
+                />
+              </td>
+              <td>
+                <label>Subtotal R$:</label
+                ><input type="text" id="sub8" readonly value="10,00" />
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">9</th>
+              <td><img src="/img/cebola.png" alt="Cebola" /></td>
+              <td>
+                <h4>Cebola</h4>
+                <p>Descrição da cebola</p>
+              </td>
+              <td>
+                <label>Valor UND R$:</label
+                ><input type="text" name="prod9" readonly value="2,50" />
+              </td>
+              <td>
+                <label>Quantidade:</label>
+                <input
+                  type="number"
+                  name="qtd9"
+                  value="1"
+                  onchange="updateSubtotal(9, 2.50)"
+                />
+              </td>
+              <td>
+                <label>Subtotal R$:</label
+                ><input type="text" id="sub9" readonly value="2,50" />
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">10</th>
+              <td><img src="/img/leite.png" alt="Leite" /></td>
+              <td>
+                <h4>Leite</h4>
+                <p>Descrição do leite</p>
+              </td>
+              <td>
+                <label>Valor UND R$:</label
+                ><input type="text" name="prod10" readonly value="3,80" />
+              </td>
+              <td>
+                <label>Quantidade:</label>
+                <input
+                  type="number"
+                  name="qtd10"
+                  value="1"
+                  onchange="updateSubtotal(10, 3.80)"
+                />
+              </td>
+              <td>
+                <label>Subtotal R$:</label
+                ><input type="text" id="sub10" readonly value="3,80" />
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">11</th>
+              <td><img src="/img//macarrão.png" alt="Macarrão" /></td>
+              <td>
+                <h4>Macarrão</h4>
+                <p>Descrição do macarrão</p>
+              </td>
+              <td>
+                <label>Valor UND R$:</label
+                ><input type="text" name="prod11" readonly value="7,50" />
+              </td>
+              <td>
+                <label>Quantidade:</label>
+                <input
+                  type="number"
+                  name="qtd11"
+                  value="1"
+                  onchange="updateSubtotal(11, 7.50)"
+                />
+              </td>
+              <td>
+                <label>Subtotal R$:</label
+                ><input type="text" id="sub11" readonly value="7,50" />
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">12</th>
+              <td><img src="/img/manteiga1.png" alt="Manteiga" /></td>
+              <td>
+                <h4>Manteiga</h4>
+                <p>Descrição da manteiga</p>
+              </td>
+              <td>
+                <label>Valor UND R$:</label
+                ><input type="text" name="prod12" readonly value="5,00" />
+              </td>
+              <td>
+                <label>Quantidade:</label>
+                <input
+                  type="number"
+                  name="qtd12"
+                  value="1"
+                  onchange="updateSubtotal(12, 5.00)"
+                />
+              </td>
+              <td>
+                <label>Subtotal R$:</label
+                ><input type="text" id="sub12" readonly value="5,00" />
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">13</th>
+              <td><img src="/img/margarina.png" alt="Manteiga 2" /></td>
+              <td>
+                <h4>Manteiga 2</h4>
+                <p>Descrição da manteiga 2</p>
+              </td>
+              <td>
+                <label>Valor UND R$:</label
+                ><input type="text" name="prod13" readonly value="6,00" />
+              </td>
+              <td>
+                <label>Quantidade:</label>
+                <input
+                  type="number"
+                  name="qtd13"
+                  value="1"
+                  onchange="updateSubtotal(13, 6.00)"
+                />
+              </td>
+              <td>
+                <label>Subtotal R$:</label
+                ><input type="text" id="sub13" readonly value="6,00" />
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">14</th>
+              <td><img src="/img/oleo.png" alt="Óleo" /></td>
+              <td>
+                <h4>Óleo</h4>
+                <p>Descrição do óleo</p>
+              </td>
+              <td>
+                <label>Valor UND R$:</label
+                ><input type="text" name="prod14" readonly value="4,50" />
+              </td>
+              <td>
+                <label>Quantidade:</label>
+                <input
+                  type="number"
+                  name="qtd14"
+                  value="1"
+                  onchange="updateSubtotal(14, 4.50)"
+                />
+              </td>
+              <td>
+                <label>Subtotal R$:</label
+                ><input type="text" id="sub14" readonly value="4,50" />
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">15</th>
+              <td><img src="/img/ovos.png" alt="Ovos" /></td>
+              <td>
+                <h4>Ovos</h4>
+                <p>Descrição dos ovos</p>
+              </td>
+              <td>
+                <label>Valor UND R$:</label
+                ><input type="text" name="prod15" readonly value="9,00" />
+              </td>
+              <td>
+                <label>Quantidade:</label>
+                <input
+                  type="number"
+                  name="qtd15"
+                  value="1"
+                  onchange="updateSubtotal(15, 9.00)"
+                />
+              </td>
+              <td>
+                <label>Subtotal R$:</label
+                ><input type="text" id="sub15" readonly value="9,00" />
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">16</th>
+              <td><img src="/img/pao forma.png" alt="Pão de Forma" /></td>
+              <td>
+                <h4>Pão de Forma</h4>
+                <p>Descrição do pão de forma</p>
+              </td>
+              <td>
+                <label>Valor UND R$:</label
+                ><input type="text" name="prod16" readonly value="5,50" />
+              </td>
+              <td>
+                <label>Quantidade:</label>
+                <input
+                  type="number"
+                  name="qtd16"
+                  value="1"
+                  onchange="updateSubtotal(16, 5.50)"
+                />
+              </td>
+              <td>
+                <label>Subtotal R$:</label
+                ><input type="text" id="sub16" readonly value="5,50" />
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">17</th>
+              <td>
+                <img src="/img/papelhigienico.png" alt="Papel Higiénico" />
+              </td>
+              <td>
+                <h4>Papel Higiénico</h4>
+                <p>Descrição do papel higiênico</p>
+              </td>
+              <td>
+                <label>Valor UND R$:</label
+                ><input type="text" name="prod17" readonly value="10,00" />
+              </td>
+              <td>
+                <label>Quantidade:</label>
+                <input
+                  type="number"
+                  name="qtd17"
+                  value="1"
+                  onchange="updateSubtotal(17, 10.00)"
+                />
+              </td>
+              <td>
+                <label>Subtotal R$:</label
+                ><input type="text" id="sub17" readonly value="10,00" />
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">18</th>
+              <td><img src="/img/refrigerante.png" alt="Refrigerante" /></td>
+              <td>
+                <h4>Refrigerante</h4>
+                <p>Descrição do refrigerante</p>
+              </td>
+              <td>
+                <label>Valor UND R$:</label
+                ><input type="text" name="prod18" readonly value="6,00" />
+              </td>
+              <td>
+                <label>Quantidade:</label>
+                <input
+                  type="number"
+                  name="qtd18"
+                  value="1"
+                  onchange="updateSubtotal(18, 6.00)"
+                />
+              </td>
+              <td>
+                <label>Subtotal R$:</label
+                ><input type="text" id="sub18" readonly value="6,00" />
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">19</th>
+              <td><img src="/img/sabao em po.png" alt="Sabão em Pó" /></td>
+              <td>
+                <h4>Sabão em Pó</h4>
+                <p>Descrição do sabão em pó</p>
+              </td>
+              <td>
+                <label>Valor UND R$:</label
+                ><input type="text" name="prod19" readonly value="8,50" />
+              </td>
+              <td>
+                <label>Quantidade:</label>
+                <input
+                  type="number"
+                  name="qtd19"
+                  value="1"
+                  onchange="updateSubtotal(19, 8.50)"
+                />
+              </td>
+              <td>
+                <label>Subtotal R$:</label
+                ><input type="text" id="sub19" readonly value="8,50" />
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">20</th>
+              <td><img src="/img/shampoo1.png" alt="Shampoo" /></td>
+              <td>
+                <h4>Shampoo</h4>
+                <p>Descrição do shampoo</p>
+              </td>
+              <td>
+                <label>Valor UND R$:</label
+                ><input type="text" name="prod20" readonly value="12,00" />
+              </td>
+              <td>
+                <label>Quantidade:</label>
+                <input
+                  type="number"
+                  name="qtd20"
+                  value="1"
+                  onchange="updateSubtotal(20, 12.00)"
+                />
+              </td>
+              <td>
+                <label>Subtotal R$:</label
+                ><input type="text" id="sub20" readonly value="12,00" />
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">21</th>
+              <td><img src="/img/veja.png" alt="Veja" /></td>
+              <td>
+                <h4>Veja</h4>
+                <p>Descrição do Veja</p>
+              </td>
+              <td>
+                <label>Valor UND R$:</label
+                ><input type="text" name="prod21" readonly value="7,00" />
+              </td>
+              <td>
+                <label>Quantidade:</label>
+                <input
+                  type="number"
+                  name="qtd21"
+                  value="1"
+                  onchange="updateSubtotal(21, 7.00)"
+                />
+              </td>
+              <td>
+                <label>Subtotal R$:</label
+                ><input type="text" id="sub21" readonly value="7,00" />
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">22</th>
+              <td><img src="/img/yogurte.png" alt="Yogurte" /></td>
+              <td>
+                <h4>Yogurte</h4>
+                <p>Descrição do yogurte</p>
+              </td>
+              <td>
+                <label>Valor UND R$:</label
+                ><input type="text" name="prod22" readonly value="4,80" />
+              </td>
+              <td>
+                <label>Quantidade:</label>
+                <input
+                  type="number"
+                  name="qtd22"
+                  value="1"
+                  onchange="updateSubtotal(22, 4.80)"
+                />
+              </td>
+              <td>
+                <label>Subtotal R$:</label
+                ><input type="text" id="sub22" readonly value="4,80" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="text-center my-4">
+          <button onclick="carrinho()" class="btn btn-primary">
+            Finalizar Compra
+          </button>
+          <h1>Valor a pagar</h1>
+          <input type="text" id="total" readonly value="0,0" />
+          <script></script>
+          <div class="text-center my-3">
+            <input type="reset" class="btn btn-primary" />
+          </div>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>
